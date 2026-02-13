@@ -3,18 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Paho Project</title>
+    <title>Paho | Roblox Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #1a1a1b; color: #ffffff; font-family: sans-serif; text-align: center; padding: 50px; }
-        h1 { color: #00b06f; }
-        .card { background: #2e2e30; padding: 20px; border-radius: 15px; border: 2px solid #00b06f; display: inline-block; }
+        :root {
+            --rbx-green: #00b06f;
+            --rbx-dark: #191b1d;
+            --rbx-card: #252729;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--rbx-dark);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Анімація фону */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--rbx-green);
+            filter: blur(150px);
+            opacity: 0.15;
+            z-index: -1;
+            animation: move 10s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-50%, -50%); }
+            to { transform: translate(50%, 50%); }
+        }
+
+        /* Основна картка */
+        .card {
+            background: var(--rbx-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: var(--rbx-green);
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 0 15px var(--rbx-green);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .highlight { color: var(--rbx-green); }
+
+        p {
+            color: #adb5bd;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .stat-item span {
+            display: block;
+            font-size: 0.8rem;
+            color: #6c757d;
+            text-transform: uppercase;
+        }
+
+        .stat-item strong {
+            font-size: 1.1rem;
+            color: var(--rbx-green);
+        }
+
+        /* Кнопка в стилі Roblox */
+        .btn {
+            display: inline-block;
+            background: var(--rbx-green);
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 176, 111, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--rbx-green);
+            filter: brightness(1.1);
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 0.75rem;
+            color: #495057;
+        }
     </style>
 </head>
 <body>
+
     <div class="card">
-        <h1>Вітаю у світі Roblox! 🎮</h1>
-        <p>Це перший сайт Пахо, створений на смартфоні.</p>
-        <p>Спеціалізація: Computer Science & Roblox Studio.</p>
+        <h1>Привіт, я <span class="highlight">Пахо</span> 👋</h1>
+        <p>Студент Computer Science та розробник у <span class="highlight">Roblox Studio</span>. Створюю унікальні ігрові світи та скрипти на Luau.</p>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span>Роль</span>
+                <strong>Scripter</strong>
+            </div>
+            <div class="stat-item">
+                <span>Мова</span>
+                <strong>Luau / JS</strong>
+            </div>
+            <div class="stat-item">
+                <span>Досвід</span>
+                <strong>4 роки CS</strong>
+            </div>
+        </div>
+
+        <a href="https://www.roblox.com/users/PROFILE_ID/profile" class="btn">Мій профіль Roblox</a>
+        
+        <div class="footer-text">
+            © 2026 Paho Dev. Powered by Termux & Vercel.
+        </div>
     </div>
+
 </body>
 </html>
